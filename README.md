@@ -40,5 +40,3 @@ contained follows:
 ## Author :black_nib:
 
 * __Idowu Olayiwola Bamidele__ <[Bamidele0102](https://github.com/Bamidele0102)>
-
-
