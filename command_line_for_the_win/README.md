@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-kfkfk
-=======
 Command line for the win - Challenge!
-========================
+=====================================
 
 -   By Sylvain Kalache, co-founder at Holberton School
 -   Weight: 1
@@ -104,4 +101,3 @@ Ready for a manual review
 -   Push your files to GitHub using `git add.` and `git commit -m "commit message"` and `git push`
 
 **Congratulations!**
->>>>>>> a9c0cd4b31dfbf0db292418b2159c209046d0c3d
