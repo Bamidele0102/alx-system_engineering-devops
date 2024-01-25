@@ -3,7 +3,7 @@
 
 -   By Sylvain Kalache
 
--   Task done by [<Idowu Olayiwola Bamidele>](https://github.com/Bamidele0102)
+-   Task done by [Idowu Olayiwola Bamidele](https://github.com/Bamidele0102)
 
 #### In a nutshell...
 
