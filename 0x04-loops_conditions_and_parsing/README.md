@@ -698,7 +698,7 @@ sylvain@ubuntu$
 #advanced
 
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/03ca27392c6338e696fc0c3b08765f02c98457a1.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220407T112127Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8929f5e471b0212b28e4548449d61e32995f38cdb7c3be428d5e7de3f2924756)
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/03ca27392c6338e696fc0c3b08765f02c98457a1.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240125%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240125T211504Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=d206848ed5463509a4d4ea75e271fcd6a2195a33c2793b5c154a52b3e621b12e)
 
 Read:
 
