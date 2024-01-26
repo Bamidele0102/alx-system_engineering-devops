@@ -15,34 +15,24 @@
 #     4. Creates a file containing its PID in /var/run/my_process.pid
 #     5. Displays "manage_my_process restarted"
 #   If any other or no arguments are passed, displays
-#+  "Usage: manage_my_process {start|stop|restart}"
-
-PID_FILE="/var/run/my_process.pid"
-
-start_process() {
-	./manage_my_process &
-	echo "$!" > "$PID_FILE"
-	echo "manage_my_process started"
-}
-
-stop_process() {
-	echo "manage_my_process stopped"
-	kill -TERM "$(cat "$PID_FILE")"
-	rm "$PID_FILE"
-}
-
-restart_process() {
-	stop_process
-	start_process
-	echo "manage_my_process restarted"
-}
+#	"Usage: manage_my_process {start|stop|restart}"
 
 if [ "${1}" == "start" ]; then
-	start_process
+	./manage_my_process &
+	touch /var/run/my_process.pid
+	echo "$!" > /var/run/my_process.pid
+	echo "manage_my_process started"
 elif [ "${1}" == "stop" ]; then
-	stop_process
+	echo "manage_my_process stopped"
+	kill "$(cat /var/run/my_process.pid)"
+	rm /var/run/my_process.pid
 elif [ "${1}" == "restart" ]; then
-	restart_process
+	kill "$(cat /var/run/my_process.pid)"
+	rm /var/run/my_process.pid
+	./manage_my_process &
+	touch /var/run/my_process.pid
+	echo "$!" > /var/run/my_process.pid
+	echo "manage_my_process restarted"
 else
 	echo "Usage: manage_my_process {start|stop|restart}"
 fi
