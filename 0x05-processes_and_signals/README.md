@@ -448,7 +448,7 @@ Write a Bash script that:
 -   Displays `Y U no love me?!` when receiving a SIGINT signal
 -   Deletes the file `/var/run/myscript.pid` and terminates itself when receiving a SIGQUIT or SIGTERM signal
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/d8ecfe9109334898b9540ffd20cf64d1c06f0c09.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220421%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220421T104012Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=5baa17e963ce09890e3e144e653b162cf6c0aa41355ad3a995fad8b5b4b1255a)
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/d8ecfe9109334898b9540ffd20cf64d1c06f0c09.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240126%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240126T103559Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=7c89baab787165046b713f02a80d31d3cd8f1835775010ce2e9009658e12f23c)
 
 ```
 sylvain@ubuntu$ sudo ./100-process_and_pid_file
@@ -501,7 +501,7 @@ Starting `100-process_and_pid_file` in the terminal #0 and then killing it in th
 #advanced
 
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/37975393ead381f4d27f268f7337c6d3013b4991.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220421%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220421T104012Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=28e414c044a8f0a5e6b3e53c5721e5651d4c133c8dee42e8c6fa6ce698b4e094)
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/37975393ead381f4d27f268f7337c6d3013b4991.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240126%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240126T103559Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=b079a843be61b9827a7c3fb1fa6baeb83eb101f03ac70adf5be6a298882279ba)
 
 Read:
 
@@ -588,7 +588,7 @@ sylvain@ubuntu$
 #advanced
 
 
-[![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/255/C6mO7b3.jpg)](http://fineartamerica.com/featured/zombie-seahorse-lauren-b.html)
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/255/C6mO7b3.jpg)
 
 Read [what a zombie process is](https://alx-intranet.hbtn.io/rltoken/Tb86ZoSxR6ORCKYlZaYzHw "what a zombie process is").
 
