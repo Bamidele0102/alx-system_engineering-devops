@@ -16,7 +16,7 @@ start() {
 
 stop() {
 	if [ -f "$PID_FILE" ]; then
-		kill -TERM $(cat "$PID_FILE")
+		kill -TERM "$(cat "$PID_FILE")"
 		rm "$PID_FILE"
 		echo "manage_my_process stopped"
 	else
