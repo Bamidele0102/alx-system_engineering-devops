@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Script to demonstrate process handling and PID file creation
+# File to store the PID
+
+PID_FILE="/var/run/myscript.pid"
+
+# Function to clean up and exit
+cleanup() {
+	echo "Y U no love me?!"
+	rm -f "$PID_FILE"
+	exit 0
+}
+
+# Set up signal handlers
+trap 'cleanup' SIGINT
+trap 'echo "I hate the kill command"; cleanup' SIGTERM
+trap 'cleanup' SIGQUIT
+
+# Display PID and create PID file
+echo $$ > "$PID_FILE"
+
+# Display message indefinitely
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
