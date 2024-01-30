@@ -1,17 +1,18 @@
 #!/usr/bin/env ruby
 
-log_file_path = ARGV[0]
-
-if log_file_path.nil? || !File.exist?(log_file_path)
-  puts "Usage: ./statistics_script.rb <log_file_path>"
-  exit 1
+if ARGV.empty?
+	puts "Usage: #{$PROGRAM_NAME} {LOG_FILE_PATH}"
+	exit 1
 end
 
-log_entries = File.read(log_file_path).scan(/\[SENDER:(.*?)\],\[RECEIVER:(.*?)\],\[FLAGS:(.*?)\]/)
+FILE.foreach(ARGV[0]) do |line|
+	match_data = line.match(/\[from:(\S+)\] \[to:(\S+)\] \[flags:([^\]]+)\]/)
 
-log_entries.each do |entry|
-  sender = entry[0]
-  receiver = entry[1]
-  flags = entry[2]
-  puts "#{sender},#{receiver},#{flags}"
+	if mathc_data
+		sender = match_data[1]
+		receiver = match_data[2]
+		flags = match_data[3]
+
+		puts "#{sender},#{receiver},#{flags}"
+	end
 end
