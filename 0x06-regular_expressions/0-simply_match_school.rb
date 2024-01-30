@@ -1,16 +1,9 @@
 #!/usr/bin/env ruby
 
-pattern = /School/
+result = ARGV[0].scan(/School/).join
 
-if ARGV.length == 1
-  input = ARGV[0]
-  match = input.match(pattern)
-
-  if match
-    puts "#{match[0]}$"
-  else
-    puts "$"
-  end
+if result.empty?
+  puts "$"
 else
-  puts "Usage: ./0-simply_match_school.rb <string>"
+  puts "#{result}$"
 end
