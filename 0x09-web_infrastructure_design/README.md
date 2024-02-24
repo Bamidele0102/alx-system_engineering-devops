@@ -106,7 +106,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/a/3GY4zBi>
+1.  <https://imgur.com/>
 
 **Repo:**
 
@@ -144,7 +144,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/a/HCfMm18>
+1.  <https://imgur.com/>
 
 **Repo:**
 
@@ -180,7 +180,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/a/qEGJy9G>
+1.  <https://imgur.com/>
 
 **Repo:**
 
@@ -209,7 +209,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/a/PCvIOZJ>
+1.  <https://imgur.com>
 
 **Repo:**
 
