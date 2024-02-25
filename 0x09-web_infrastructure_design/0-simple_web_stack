@@ -1,0 +1,44 @@
+**Link to the file:**
+---------------------
+
+
+
+**Questions:**
+--------------
+## What is a server?
+-   A server refers to a computer system or software program that provides services, resources, or functionality to other computers or devices, known as clients, within a network.
+
+## What is the role of the domain name?
+-   The domain name serves as a human-readable label that represents a unique address on the internet. It plays several important roles in the functioning of the internet and web services.
+
+## What type of DNS record www is in www.foobar.com?
+-   The "www" in "www.foobar.com" is typically associated with a DNS record called a CNAME (Canonical Name) record.
+
+-   A CNAME record is used to alias one domain name to another. In the case of "www.foobar.com," the CNAME record would point the "www" subdomain to the primary domain name "foobar.com." This allows users to access the website using the standard "www" prefix before the domain name.
+
+## What is the role of the web server?
+- A webserver is a computer software and underlying hardware that accepts requests via HTTP(the network protocol created to distribute web content) or it's secure variant(HTTPS) and returns web content to the client.
+
+## What is the role of the application server?
+-   The application server serves as an intermediary between the client-side interface and the backend databases or services. Its role is to execute the logic of the application, generate dynamic content, and manage data exchange between the user interface (typically a web browser) and the backend systems.
+
+## What is the role of the database?
+-   The database serves as a central repository for storing, managing, and organizing structured data. Its role is to provide efficient and reliable storage and retrieval mechanisms for data used by applications and systems. Here are the key responsibilities and roles of a database.
+
+## What is the server using to communicate with the computer of the user requesting the website?
+-   When a server communicates with the computer of a user requesting a website, it primarily uses the Hypertext Transfer Protocol (HTTP) or its secure variant, HTTPS (HTTP over SSL/TLS).
+
+## Explain what the issues are with this infrastructure:
+### SPOF
+-   Single Point of Failure (SPOF):A single point of failure (SPOF) refers to any component within a system that, if it fails, would cause the entire system to become unavailable. In the described infrastructure, potential SPOFs include:
+    -   The single server hosting the web server, application server, and database. If this server fails due to hardware issues, software crashes, or other reasons, the entire website would become inaccessible.
+
+### Downtime when maintenance needed (like deploying new code web server needs to be restarted)
+### Downtime During Maintenance:
+-   Performing maintenance tasks such as deploying new code or updates often requires restarting the web server or other components. During this time, the website may experience downtime or reduced availability, impacting users' ability to access the site or use its features.
+    -   To minimize downtime during maintenance, strategies such as rolling updates, blue-green deployments, or canary deployments can be employed. These techniques involve gradually updating components or deploying changes to minimize disruption to service.
+
+### Scalability Challenges:
+-   The described infrastructure may struggle to handle sudden spikes in incoming traffic, as it lacks scalability mechanisms to dynamically adjust resource allocation and accommodate increased demand.
+    -   Scaling vertically (adding more resources to the existing server) has limits and may not be sufficient to handle significant increases in traffic. Additionally, the infrastructure lacks horizontal scalability, which involves adding more servers to distribute the workload.
+-   To address scalability challenges, the infrastructure should be designed to scale horizontally by adding more servers and load balancers as needed. Additionally, implementing auto-scaling mechanisms that automatically provision and deprovision resources based on demand can help ensure the infrastructure can handle fluctuations in traffic levels effectively.
