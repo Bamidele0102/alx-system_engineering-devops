@@ -180,7 +180,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  [2-secured_and_monitored_web_infrastructure](./images/2-secured_and_monitored_web_infrastructure.)
+1.  [2-secured_and_monitored_web_infrastructure](./images/2-secured_and_monitored_web_infrastructure.png)
 
 **Repo:**
 
