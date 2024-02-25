@@ -4,4 +4,38 @@ Link to the file:
 
 Questions:
 ----------
+Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both?
+
+    Yes, as Active - Active
+
+What distribution algorithm your load balancer is configured with and how it works?
+
+-   The Weighted Round Robin (WRR) algorithm is a load balancing technique used by load balancers to distribute incoming network traffic among multiple backend servers or resources. It's an extension of the standard Round Robin algorithm but allows for different weights to be assigned to each server, influencing the distribution of traffic. Here's how the Weighted Round Robin algorithm works:
+
+Assign Weights to Servers:
+
+-   Each backend server in the pool is assigned a weight, which represents its relative capacity or capability to handle incoming requests. Servers with higher weights are allocated a larger share of the traffic compared to servers with lower weights.
+Initialization:
+
+    The load balancer initializes internal variables and data structures to keep track of the current state and configuration of the backend servers.
+Client Request:
+
+    When a client sends a request to the load balancer, the load balancer selects the next server in the rotation based on the weighted round robin algorithm.
+Server Selection:
+
+    The load balancer selects the next server using a rotating mechanism similar to the standard Round Robin algorithm. However, the selection process takes into account the weights assigned to each server.
+The load balancer maintains a pointer or index indicating the next server to be selected. It advances this pointer based on the weights assigned to the servers.
+    Servers with higher weights are selected more frequently, while servers with lower weights are selected less frequently.
+Traffic Distribution:
+
+    When a server is selected, the load balancer forwards the client's request to that server for processing.
+The selected server handles the request, processes it, and generates a response, which is then sent back to the client through the load balancer.
+Rotation and Load Monitoring:
+
+    After serving a request, the load balancer updates its internal state and advances the server selection pointer for the next request.
+The load balancer may also monitor the health and performance of the backend servers in real-time, adjusting the weights dynamically based on factors such as server load, response times, or availability.
+Repeat:
+
+    The process repeats for each subsequent client request, with the load balancer rotating through the backend servers according to their assigned weights.
+By using the Weighted Round Robin algorithm, load balancers can distribute incoming traffic among backend servers in a way that takes into account their individual capacities and capabilities, allowing for efficient resource utilization and improved performance and reliability of the overall system.
 
