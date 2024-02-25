@@ -106,7 +106,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/>
+1.  [0-simple_web_stack](./images/0-simple_web_stack.png)
 
 **Repo:**
 
@@ -144,7 +144,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/>
+1.  [1-distributed_web_infrastructure](./images/1-distributed_web_infrastructure.png)
 
 **Repo:**
 
@@ -180,7 +180,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/>
+1.  [2-secured_and_monitored_web_infrastructure](./images/2-secured_and_monitored_web_infrastructure.)
 
 **Repo:**
 
@@ -209,7 +209,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com>
+1.  [3-scale_up](./images/3-scale_up.png)
 
 **Repo:**
 
