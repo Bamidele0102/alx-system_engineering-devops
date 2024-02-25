@@ -1,0 +1,31 @@
+Link to the file:
+-----------------
+
+
+Questions:
+----------
+Explain some specifics about this infrastructure:
+For every additional element, why you are adding it.
+
+Answer:
+-------
+
+In this web infrastructure, several elements are added for specific reasons. Below are explanation for each additional elements:
+
+- Load Balancer Cluster (HAProxy):
+
+    Reason for Adding: Load balancers are added to distribute incoming network traffic across multiple servers, ensuring high availability, scalability, and reliability. By configuring HAProxy as a cluster, redundancy and fault tolerance are achieved. If one load balancer fails, the other can continue to handle traffic seamlessly.
+
+- Split Components onto Separate Servers:
+
+    Reason for Adding: Splitting components (web server, application server, and database) onto separate servers improves fault isolation, resource utilization, and scalability. Each component can be independently scaled, upgraded, or maintained without affecting the others. This architecture also enhances security by limiting the potential impact of security breaches or failures to specific components rather than the entire system.
+- Web Server:
+
+    Reason for Adding: Web servers are responsible for serving static content, handling HTTP requests, and generating dynamic web pages. By separating the web server from other components, such as the application server and database, the workload can be distributed efficiently, and specialized configurations or optimizations can be applied to each server type.
+- Application Server:
+
+    Reason for Adding: Application servers execute application logic, process business logic, and generate dynamic content in response to client requests. Separating the application server from the web server and database allows for better resource allocation, performance tuning, and scalability. It also facilitates the development and deployment of modular, scalable, and maintainable applications.
+- Database Server:
+
+    Reason for Adding: Database servers store and manage data used by the application. Separating the database server from the web server and application server ensures data integrity, security, and scalability. It allows for specialized database configurations, replication, backups, and disaster recovery strategies tailored to the specific requirements of the application.
+Overall, each additional element in the infrastructure serves a specific purpose in improving performance, scalability, availability, and security. By separating components onto separate servers and configuring load balancers for redundancy, the infrastructure is designed to handle increased traffic, mitigate failures, and provide a reliable and responsive user experience.
