@@ -1,4 +1,4 @@
-# Creating a file using Puppet
+# Creating a file in /tmp using Puppet
 
 file { '/tmp/school':
   ensure  => 'present',
