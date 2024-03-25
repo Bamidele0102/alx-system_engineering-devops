@@ -1,0 +1,7 @@
+# SSH configuration file for the local client
+
+Host server01
+    Hostname 18.206.208.169
+    User ubuntu
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
