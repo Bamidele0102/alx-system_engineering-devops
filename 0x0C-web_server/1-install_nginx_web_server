@@ -11,4 +11,4 @@ sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/def
 service nginx restart
 
 # Create a simple HTML page with "Hello World!"
-echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
