@@ -1,11 +1,15 @@
 # System Engineering and DevOps - Bash, Scripting, Web Stack. <!--/Web Stack Debugging, Networking & Security, CI/CD -->
 
+## Description
 This repository contains programs written for the system engineering and DevOps
 track at ALX. In these projects, I worked with Bash and practiced
 writing Bash scripts to automate tasks. <!--I learned about the OSI model and
 various Linux networking tools. Further, I configured a distributed system -
 two web servers and one load balancer - for deployment of my AirBnB project
-using Nginx, HAProxy, certbot, ufw, and MySQL.-->The specific list of projects
+using Nginx, HAProxy, certbot, ufw, and MySQL.-->
+
+## Structure
+The specific list of projects
 contained follows:
 
 * [0x00. Shell, basics](./0x00-shell_basics)
