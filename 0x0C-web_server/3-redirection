@@ -1,15 +1,44 @@
 #!/usr/bin/env bash
-# Perform nginx server install and config
+# Installs, configures, and starts the server
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html
+# Update package lists
+apt-get update
 
-# configure nginx server
-default_sites="/etc/nginx/sites-available/default"
-location=$(grep -Fn location $default_sites | head -1 | cut -d":" -f1)
-location_data="\\\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n\n"
+# Install Nginx
+apt-get -y install nginx
 
-## Update default site to redirect and start nginx server
-sudo sed -i "${location}i ${location_data}" ${default_sites}
-sudo service nginx start
+# Allow HTTP traffic through the firewall
+sudo ufw allow 'Nginx HTTP'
+
+# Create directory for web content and set permissions
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+
+# Create index.html with "Hello World!" message
+echo 'Hello World!' > /var/www/html/index.html
+
+# Define Nginx server configuration
+SERVER_CONFIG="\
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name _;
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+    if (\$request_filename ~ redirect_me){
+        rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+    }
+}"
+
+# Write server configuration to Nginx default site configuration file
+echo "$SERVER_CONFIG" > /etc/nginx/sites-enabled/default
+
+# Check if Nginx is running and start or restart it
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+    service nginx start
+else
+    service nginx restart
+fi
