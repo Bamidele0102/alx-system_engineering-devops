@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # bash script to start apache2 server
+# start apache2 iside docker
 
 sudo service apache2 start
