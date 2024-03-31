@@ -1,41 +1,30 @@
-# Setup New Ubuntu server with nginx
-# and add a custom HTTP header
+# Automate the task of creating a custom HTTP header response with Puppet
 
-exec { 'update system':
+exec { 'update_system':
   command => '/usr/bin/apt-get update',
+  path    => ['/usr/bin', '/usr/sbin'],
 }
 
 package { 'nginx':
   ensure  => 'installed',
-  require => Exec['update system'],
-}
-
-file { '/var/www/html/index.html':
-  ensure  => present,
-  content => 'Hello World!',
+  require => Exec['update_system'],
 }
 
 file { '/etc/nginx/sites-available/default':
   ensure  => present,
-  notify  => Service['nginx'],
+  content => template('module_name/nginx_config.erb'),
   require => Package['nginx'],
-}
-
-exec { 'redirect_me':
-  command  => 'sed -i "24i\\	rewrite ^/redirect_me https://th3-gr00t.tk/ permanent;" /etc/nginx/sites-available/default',
-  provider => shell,
-  require  => File['/etc/nginx/sites-available/default'],
-}
-
-exec { 'add_custom_header':
-  command  => 'sed -i "25i\	add_header X-Served-By $hostname;" /etc/nginx/sites-available/default',
-  provider => shell,
-  require  => Exec['redirect_me'],
-  notify   => Service['nginx'],
+  notify  => Service['nginx'],
 }
 
 service { 'nginx':
   ensure  => running,
   enable  => true,
   require => Package['nginx'],
+}
+
+# Define a custom template to insert the X-Served-By header into the Nginx configuration
+file { '/etc/puppetlabs/code/modules/module_name/templates/nginx_config.erb':
+  ensure  => present,
+  content => "# Nginx configuration with X-Served-By header\nserver {\n    listen 80 default_server;\n    listen [::]:80 default_server;\n    root /var/www/html;\n    index index.html index.htm index.nginx-debian.html;\n    server_name _;\n    add_header X-Served-By ${hostname};\n    location / {\n        try_files \$uri \$uri/ =404;\n    }\n    if (\$request_filename ~ redirect_me){\n        rewrite ^ https://th3-gr00t.tk/ permanent;\n    }\n    error_page 404 /error_404.html;\n    location = /error_404.html {\n        internal;\n    }\n}",
 }
