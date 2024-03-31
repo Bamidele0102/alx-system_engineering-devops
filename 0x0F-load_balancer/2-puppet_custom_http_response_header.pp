@@ -3,28 +3,31 @@
 
 # Run apt-get update
 exec {'update':
+  command  => '/usr/bin/apt-get -y update',
   provider => shell,
-  command  => 'sudo apt-get -y update',
+  path     => ['/usr/bin', '/usr/sbin'],
   before   => Exec['install Nginx'],
 }
 
 # Install Nginx
 exec {'install Nginx':
+  command  => '/usr/bin/apt-get -y install nginx',
   provider => shell,
-  command  => 'sudo apt-get -y install nginx',
+  path     => ['/usr/bin', '/usr/sbin'],
+  require  => Exec['update'],
   before   => Exec['add_header'],
 }
 
 # Add custom HTTP header
-exec { 'add_header':
-  provider    => shell,
-  environment => ["HOST=${hostname}"],
-  command     => 'sudo sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOST\";/" /etc/nginx/nginx.conf',
-  before      => Exec['restart Nginx'],
+file { '/etc/nginx/conf.d/custom_header.conf':
+  ensure  => present,
+  content => "add_header X-Served-By ${hostname};",
+  notify  => Exec['restart Nginx'],
 }
 
 # Restart Nginx
-exec { 'restart Nginx':
-  provider => shell,
-  command  => 'sudo service nginx restart',
+service { 'nginx':
+  ensure    => running,
+  enable    => true,
+  subscribe => File['/etc/nginx/conf.d/custom_header.conf'],
 }
