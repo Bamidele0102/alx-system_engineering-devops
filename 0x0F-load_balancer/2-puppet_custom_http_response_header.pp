@@ -10,10 +10,6 @@ package { 'nginx':
   require => Exec['update system'],
 }
 
-file { '/var/www/html':
-  ensure => directory,
-}
-
 file { '/var/www/html/index.html':
   ensure  => present,
   content => 'Hello World!',
@@ -21,9 +17,21 @@ file { '/var/www/html/index.html':
 
 file { '/etc/nginx/sites-available/default':
   ensure  => present,
-  content => template('module_name/default.erb'),
   notify  => Service['nginx'],
   require => Package['nginx'],
+}
+
+exec { 'redirect_me':
+  command  => 'sed -i "24i\\	rewrite ^/redirect_me https://th3-gr00t.tk/ permanent;" /etc/nginx/sites-available/default',
+  provider => shell,
+  require  => File['/etc/nginx/sites-available/default'],
+}
+
+exec { 'add_custom_header':
+  command  => 'sed -i "25i\	add_header X-Served-By $hostname;" /etc/nginx/sites-available/default',
+  provider => shell,
+  require  => Exec['redirect_me'],
+  notify   => Service['nginx'],
 }
 
 service { 'nginx':
