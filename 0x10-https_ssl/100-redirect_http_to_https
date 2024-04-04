@@ -36,11 +36,12 @@ defaults
 frontend devopswithbambam-frontend
         bind *:80
         mode http
+        http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X_Forwarded-Proto http
         default_backend devopswithbambam-backend
 
 frontend devopswithbambam-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.devopswithbambam.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/devopswithbambam.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend devopswithbambam-backend
 
