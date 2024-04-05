@@ -1,5 +1,5 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
+# configures a server to listening on port 80 of all servers active IPv4 IPs
 apt-get update
 apt-get install -y nginx
 systemctl start nginx
