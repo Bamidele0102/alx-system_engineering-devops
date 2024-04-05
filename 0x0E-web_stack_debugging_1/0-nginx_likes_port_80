@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# configures a server to listening on port 80 of all servers active IPv4 IPs
+# write a script to fix nginx web server
 
-sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo sed -i 's/sites-enabled/sites-available/g' "/etc/nginx/nginx.conf";
 sudo service nginx restart
