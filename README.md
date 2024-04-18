@@ -26,6 +26,15 @@ contained follows:
 * [0x0B. SSH](./0x0B-ssh)
 * [0x0C. Web Server](./0x0C-web_server)
 * [0x0D. Web stack debugging #0](./0x0D-web_stack_debugging_0/)
+* [0x0E. Web stack debugging #1](./0x0E-web_stack_debugging_1/)
+* [0x0F. Load balancer](./0x0F-load_balancer/)
+* [0x10. HTTPS_SSL](./0x10-https_ssl/)
+* [0X11. What happens when your type google com in your browser and press Enter](./0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/)
+* [0x12. Web stack debugging #2](./0x12-web_stack_debugging_2/)
+* [0x13. Firewall](./0x13-firewall/)
+* [0x14. MYSQL](./0x14-mysql/)
+* [Command line for the win](./command_line_for_the_win/)
+* [Attack is the best defence](./attack_is_the_best_defense/)
 
 ## Author :black_nib:
 
