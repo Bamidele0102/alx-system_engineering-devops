@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Using the task #0 to extend the Python script
-    to export data in the CSV format.
+    to export data in the JSON format.
 """
 import json
 import requests
