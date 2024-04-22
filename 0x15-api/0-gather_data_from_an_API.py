@@ -1,37 +1,34 @@
 #!/usr/bin/python3
-"""
-Extend script from Task 0 and Export data in CSV format
-"""
-import json
+'''
+Write a Python script that, using this REST API, for a given employee ID,
+returns information about his/her TODO list progress.
+'''
 import requests
+from sys import argv
 
 
-def all_to_json():
+def display():
     """return API data"""
-    USERS = []
     users = requests.get("http://jsonplaceholder.typicode.com/users")
     for user in users.json():
-        USERS.append((user.get('id'), user.get('username')))
-    TASK_STATUS_TITLE = []
+        if user.get('id') == int(argv[1]):
+            EMPLOYEE_NAME = (user.get('name'))
+            break
+    TOTAL_NUM_OF_TASKS = 0
+    NUMBER_OF_DONE_TASKS = 0
+    TASK_TITLE = []
     todos = requests.get("http://jsonplaceholder.typicode.com/todos")
     for todo in todos.json():
-        TASK_STATUS_TITLE.append((todo.get('userId'),
-                                  todo.get('completed'),
-                                  todo.get('title')))
-
-    """export to json"""
-    data = dict()
-    for user in USERS:
-        todo = []
-        for task in TASK_STATUS_TITLE:
-            if task[0] == user[0]:
-                todo.append({"task": task[2], "completed": task[1],
-                             "username": user[1]})
-        data[str(user[0])] = todo
-    filename = "todo_all_employees.json"
-    with open(filename, "w") as file:
-        json.dump(data, file, sort_keys=True)
+        if todo.get('userId') == int(argv[1]):
+            TOTAL_NUM_OF_TASKS += 1
+            if todo.get('completed') is True:
+                NUMBER_OF_DONE_TASKS += 1
+                TASK_TITLE.append(todo.get('title'))
+    print("Employee {} is done with tasks({}/{}):"
+          .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUM_OF_TASKS))
+    for task in TASK_TITLE:
+        print("\t {}".format(task))
 
 
 if __name__ == "__main__":
-    all_to_json()
+    display()
