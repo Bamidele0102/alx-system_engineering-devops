@@ -1,46 +1,32 @@
 #!/usr/bin/python3
-
+"""
+Recursively for all hot articles of a given subreddit
+"""
 import requests
 
 
-def recurse(subreddit, hot_list=None, after=None):
+def recurse(subreddit, hot_list=[], after="tmp"):
     """
-    Recursively fetches titles of hot articles for a given subreddit.
-
-    Args:
-        subreddit (str): The name of the subreddit to fetch
-        hot articles from.
-        hot_list (list): A list to accumulate titles of
-        hot articles. Defaults to None.
-        after (str): A token indicating the start of
-        the next page of results. Defaults to None.
-
-    Returns:
-        list: A list containing the titles of all hot articles
-        for the given subreddit.
-        If no results are found for the subreddit, returns None.
+        Return all hot articles for a given subreddit
+        or None if invalid subreddit given
     """
-    if hot_list is None:
-        hot_list = []
+    headers = requests.utils.default_headers()
+    headers.update({'User-Agent': 'My User Agent 1.0'})
 
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                      'AppleWebKit/537.36 (KHTML, like Gecko) '
-                      'Chrome/58.0.3029.110 Safari/537.3'
-    }
-    params = {'limit': 100, 'after': after}
-    response = requests.get(url, headers=headers, params=params)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    if after != "tmp":
+        url = url + "?after={}".format(after)
+    r = requests.get(url, headers=headers, allow_redirects=False)
 
-    if response.status_code == 200:
-        data = response.json()
-        posts = data['data']['children']
-        for post in posts:
-            hot_list.append(post['data']['title'])
-        after = data['data']['after']
-        if after is not None:
-            return recurse(subreddit, hot_list, after)
-        else:
-            return hot_list
-    else:
-        return None
+    results = r.json().get('data', {}).get('children', [])
+    if not results:
+        if after == "tmp":
+            return None
+        return hot_list
+    for e in results:
+        hot_list.append(e.get('data').get('title'))
+
+    after = r.json().get('data').get('after')
+    if not after:
+        return hot_list
+    return (recurse(subreddit, hot_list, after))
