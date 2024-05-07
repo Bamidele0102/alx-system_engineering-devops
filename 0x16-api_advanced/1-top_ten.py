@@ -1,22 +1,16 @@
 #!/usr/bin/python3
 """
-Query titles of top ten posts of a given subreddit
+prints the top ten titles of a given subreddit
 """
-import requests
+from requests import get
 
 
 def top_ten(subreddit):
-    """
-        Print top ten titles for a given subreddit or None
-        if invalid subreddit is given
-    """
-    headers = requests.utils.default_headers()
-    headers.update({'User-Agent': 'My User Agent 1.0'})
-
-    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
-    r = requests.get(url, headers=headers).json()
-    top_ten = r.get('data', {}).get('children', [])
-    if not top_ten:
-        print(None)
-    for title in top_ten:
-        print(title.get('data').get('title'))
+    try:
+        res = get("https://www.reddit.com/r/{}/hot.json".format(subreddit),
+                  headers={'User-agent': 'hAxr'}, params={'limit': 10},
+                  allow_redirects=False).json()
+        for item in res['data']['children']:
+            print(item['data']['title'])
+    except:
+        print('None')
