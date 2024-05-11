@@ -121,7 +121,7 @@ Please, remember that these blogs must be written in English to further your tec
 
 #### Add URLs here:
 
-1.  <https://docs.google.com/document/d/1Foq7OSh1XHp5Cqxq12GEZEHGOjURQQT_n4HqOH82Ydg/edit?usp=sharing>
+1.  <https://docs.google.com/document/d/1TZoJl34HStWodG4UTGH6iWgnlM_hlSNyxP96IdiZ6ns/edit?usp=sharing>
 
 **Repo:**
 
