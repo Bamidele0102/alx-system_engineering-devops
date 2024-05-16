@@ -6,8 +6,8 @@ GUNICORN_PID=$(pgrep -f "gunicorn")
 
 # Check if Gunicorn is running
 if [ -z "$GUNICORN_PID" ]; then
-  echo "Gunicorn is not running."
-  exit 1
+	echo "Gunicorn is not running."
+	exit 1
 fi
 
 # Send HUP signal to gracefully reload Gunicorn
