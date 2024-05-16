@@ -1,34 +1,29 @@
+# Add a route with query parameters
 server {
-                listen 80 default_server;
-                location /hbnb_static { alias /data/web_static/current/;}
-                listen [::]:80 default_server;
-                root /var/www/html;
-                index index.html index.htm index.nginx-debian.html
-                server_name_;
-                add_header X-Served-By $hostname;
-                location / {
-                        try_files $uri $uri/ =404;
-                }
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
-                location /airbnb-onepage {
-                proxy_pass http://0.0.0.0:5000/airbnb-onepage;
-                }
+    server_name 100.25.13.203;
+    add_header X-Server-By 527320-web-01;
 
-                location ~ ^/airbnb-dynamic/number_odd_or_even/([0-9]+)$ {
-                proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
-                }
+    root /var/www/html;
+    index index.html index.html;
 
-                location /api/ {
-                        proxy_pass http://0.0.0.0:5002;
-                }
+    location = /airbnb-onepage/ {
+        proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+    }
 
-                location /hbnb_static { alias /data/web_static/current/;
-                }
-                if ($request_filename ~ redirect_me){
-                        rewrite ^ https://th3-gr00t.tk/ permanent;
-                }
-                error_page 404 /error_404.html;
-                location = /error_404.html {
-                        internal;
-                }
+    location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+        proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+    }
+
+    location /api {
+        proxy_pass http://127.0.0.1:5002/api;
+    }
+
+    error_page 404 /404.html;
+    location /404 {
+        root /var/www/html;
+        internal;
+    }
 }
