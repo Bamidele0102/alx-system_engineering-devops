@@ -11,6 +11,6 @@ if [ -z "$GUNICORN_PID" ]; then
 fi
 
 # Send HUP signal to gracefully reload Gunicorn
-kill -HUP $GUNICORN_PID
+kill -HUP "$GUNICORN_PID"
 
 echo "Sent HUP signal to Gunicorn (PID: $GUNICORN_PID) to reload it gracefully."
