@@ -3,10 +3,10 @@
 ## Description
 This repository contains programs written for the system engineering and DevOps
 track at ALX. In these projects, I worked with Bash and practiced
-writing Bash scripts to automate tasks. I learned about the OSI model and
+writing Bash scripts to automate tasks. <-- I learned about the OSI model and
 various Linux networking tools. Further, I configured a distributed system -
 two web servers and one load balancer - for deployment of my AirBnB project
-using Nginx, HAProxy, certbot, ufw, and MySQL.
+using Nginx, HAProxy, certbot, ufw, and MySQL-->.
 
 ## Structure
 The specific list of projects
